@@ -6,7 +6,7 @@
     "dataSources": [
       {
         "name": "Demo",
-        "connectionString": "Data Source=sqlbits2022md.database.windows.net;Initial Catalog=demo_beta;Persist Security Info=true;User ID=PowerBI;Encrypt=true;TrustServerCertificate=false;Password=reJ_kcxqn2||g{QzuxnPiH_jmsFT7_&#$!~<j}zjbbuuaRmx",
+        "connectionString": "Data Source=sqlbits2022md.database.windows.net;Initial Catalog=demo_beta;Persist Security Info=true;User ID=PowerBI;Encrypt=true;TrustServerCertificate=false;Password=xxxxx",
         "impersonationMode": "impersonateServiceAccount",
         "provider": "System.Data.SqlClient",
         "annotations": [
