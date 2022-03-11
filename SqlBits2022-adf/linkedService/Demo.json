@@ -1,0 +1,10 @@
+{
+	"name": "Demo",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sqlbits2022md.database.windows.net;Initial Catalog=demo_dev"
+		}
+	}
+}

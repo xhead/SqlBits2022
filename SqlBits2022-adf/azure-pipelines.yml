@@ -1,0 +1,47 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+    verbose: true
+  displayName: 'Install npm packages'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run build validate $(Build.Repository.LocalPath) /subscriptions/$(SubscriptionId)/resourceGroups/$(ResourceGroup)/providers/Microsoft.DataFactory/factories/$(DataFactory)'
+  displayName: 'ADF: Validate $(DataFactory)'
+ 
+# Validate and then generate the ARM template into the destination folder. Same as clicking "Publish" from UX
+# The ARM template generated is not published to the ‘Live’ version of the factory. Deployment should be done using a release pipeline.
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run build export $(Build.Repository.LocalPath) /subscriptions/$(SubscriptionId)/resourceGroups/$(ResourceGroup)/providers/Microsoft.DataFactory/factories/$(DataFactory) "ArmTemplate"'
+  displayName: 'ADF: Generate ARM template for $(DataFactory)'
+ 
+ # Publish the Artifact to be used as a source for a release pipeline
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.Repository.LocalPath)/ArmTemplate'
+    artifact: 'ArmTemplates'
+    publishLocation: 'pipeline'
+    
+##- script: |
+##    npm install
+##    npm run validate $(Build.SourcesDirectory) /subscriptions/dd98ac57-d2af-49f2-b564-1320d776555b/resourceGroups/SqlBits2022/providers/Microsoft.DataFactory/factories/adf-sqlbits2022-dev
+##  displayName: 'npm install and build'

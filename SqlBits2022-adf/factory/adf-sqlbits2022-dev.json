@@ -1,0 +1,32 @@
+{
+	"name": "adf-sqlbits2022-dev",
+	"properties": {
+		"globalParameters": {
+			"Test1": {
+				"type": "string",
+				"value": "Value"
+			},
+			"Test2": {
+				"type": "int",
+				"value": 0
+			},
+			"Test3": {
+				"type": "float",
+				"value": 0
+			},
+			"Test4": {
+				"type": "bool",
+				"value": true
+			},
+			"Test5": {
+				"type": "array",
+				"value": []
+			},
+			"Test6": {
+				"type": "object",
+				"value": "stuff"
+			}
+		}
+	},
+	"location": "canadacentral"
+}
