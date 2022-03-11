@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseName>
+    </TargetDatabaseName>
+    <DeployScriptFileName>Demo.sql</DeployScriptFileName>
+    <BlockOnPossibleDataLoss>False</BlockOnPossibleDataLoss>
+    <GenerateSmartDefaults>True</GenerateSmartDefaults>
+    <DropObjectsNotInSource>False</DropObjectsNotInSource>
+    <IgnoreColumnOrder>True</IgnoreColumnOrder>
+    <ExcludeUsers>True</ExcludeUsers>
+    <IgnoreRoleMembership>True</IgnoreRoleMembership>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
+  </PropertyGroup>
+</Project>
